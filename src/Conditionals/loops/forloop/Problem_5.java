@@ -25,7 +25,7 @@ public class Problem_5 {
         for (int i: userIds)
         {
             if(i < 0) {
-                System.out.println("Banned User Found: " + i);
+                System.out.println("Banned User Found with Id: " + i);
                 break;
             }
         }
