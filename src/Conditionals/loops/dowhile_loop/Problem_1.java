@@ -12,6 +12,19 @@ Problem 3 — Input-driven loop (backend-style)
 
 package Conditionals.loops.dowhile_loop;
 
-public class Problem_1 {
+import java.util.Scanner;
 
+public class Problem_1 {
+    public static void main(String[] args) {
+        Scanner userInput = new Scanner(System.in);
+        String input;
+        int wordCount = -1;
+        do {
+            System.out.print("Enter a word or 'exit': ");
+            input = userInput.nextLine();
+            wordCount++;
+        } while (!input.equalsIgnoreCase("exit"));
+
+        System.out.println("You entered " + wordCount + " words");
+    }
 }
