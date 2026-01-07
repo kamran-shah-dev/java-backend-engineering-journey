@@ -27,12 +27,13 @@ public class Problem_3 {
 
         int validCount = 0;
         for(int i:list) {
+            if (i <= 0) continue;
+            if(i % 2 != 0 ) continue;
+
+            System.out.print(i + " ");
+            validCount++;
+
             if (validCount == 5) break;
-            if(i % 2 == 0 && !(i < 0))
-            {
-                System.out.print(i + " ");
-                validCount++;
-            }
         }
     }
 }
