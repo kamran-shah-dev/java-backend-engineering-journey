@@ -33,14 +33,12 @@ class user_status {
         System.out.println("Payment Status: " + payment_status);
     }
 
-
-
 }
-
 
 public class Method_Chaining {
     public static void main(String[] args) {
         user_status u = new user_status().setProfile_status("Verified").setProfile_completed(true).setSubscription_plan("Pro").setPayment_status("Paid");
         u.printUserInfo();
+        // never let a variable unused (Good Code Practice)
     }
 }
