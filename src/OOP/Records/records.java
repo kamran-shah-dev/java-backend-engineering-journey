@@ -1,6 +1,9 @@
 package OOP.Records;
+interface users {
 
-record user (String name, int age, float height) {
+}
+
+record user (String name, int age, float height)  {
     public void displayUser()
     {
         System.out.println("Name is: " + this.name);
@@ -13,6 +16,7 @@ public class records {
     public static void main(String[] args) {
         user u = new user("Kamran", 23, 5.9f);
         u.displayUser();
+        System.out.println(u.hashCode());
     }
 }
 
