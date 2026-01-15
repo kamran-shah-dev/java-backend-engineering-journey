@@ -14,9 +14,13 @@ class initializer_block {
         System.out.println(height);
     }
 
+
+
 }
+
+
 public class class_abd_objects {
     public static void main(String[] args) {
-        initializer_block ib = new initializer_block();
+
     }
 }
