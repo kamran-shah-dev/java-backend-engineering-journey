@@ -3,6 +3,7 @@ package OOP.Lambda_Expressions;
 interface returnWithSymbol {
     String run(String symbol);
 }
+
 public class functional_interface {
     public static void main(String[] args) {
 
