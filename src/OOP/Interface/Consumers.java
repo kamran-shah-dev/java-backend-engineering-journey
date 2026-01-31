@@ -1,22 +1,24 @@
 package OOP.Interface;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
 public class Consumers {
     public static void main(String[] args) {
-        Consumer <List<String>> first_consumer = list -> {
-            for(String name : list) {
-                System.out.println(name + " 1");
+        Consumer <String> str = System.out::println;
+        str.accept("Hello Java");
+
+        Consumer <ArrayList<Integer>> numbers = list -> {
+            for(Integer li : list) {
+                System.out.println(li);
             }
         };
-        Consumer<List<String>> second_consumer = li -> {
-            for(String x : li) {
-                System.out.println(x);
-            }
-        };
-        second_consumer.andThen(first_consumer).accept(Arrays.asList("Alpha" , "Beta"));
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(4);
+        list.add(6);
+        numbers.accept(list);
 
     }
 }
