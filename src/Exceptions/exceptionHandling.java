@@ -1,5 +1,5 @@
 package Exceptions;
-// unchecked exceptions
+// unchecked exceptions (exceptions will not be checked at compile time.
 class tryCatch {
     // example 1 (simple try, catch, multiple catch blocks
     public void example1(int[] numerator, int[] denomerator) {
