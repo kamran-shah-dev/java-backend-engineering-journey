@@ -11,7 +11,7 @@ class ClassRoom {
     }
     public void bookASeat(int seatNo) throws notEnoughSpace {
         if(hasSpace()) {
-            System.out.println("your  seat number is: " + seatNo);
+//            System.out.println("your  seat number is: " + seatNo);
             this.space --;
         } else {
             throw new notEnoughSpace();
