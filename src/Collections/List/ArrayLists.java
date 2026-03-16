@@ -42,5 +42,11 @@ public class ArrayLists {
             System.out.println(i);
         } */
 
+
+        // replace elements use set() method with, provide index and new value
+        /* list.set(2, 60);
+
+        System.out.println(list.get(2)); */
+
     }
 }
