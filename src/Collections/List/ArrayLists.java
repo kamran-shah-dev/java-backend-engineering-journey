@@ -27,5 +27,20 @@ public class ArrayLists {
         */
 
         // contains function to check how many elements are there in list.
+
+        /* System.out.println(list.contains(20)); */
+
+        // adding elements using index/at start/at end & removing element from list
+        /* list.add(2, 40);
+        list.addFirst(10);
+        list.addLast(50);
+
+        list.remove(1);
+        // to remove first element use removeFirst
+        // to remove last element use removeLast
+        for(Integer i: list) {
+            System.out.println(i);
+        } */
+
     }
 }
