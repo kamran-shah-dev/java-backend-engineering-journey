@@ -1,9 +1,12 @@
 package Collections.List;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ArrayLists {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         ArrayList<Integer> list = new ArrayList<>();
         // adding elements
         list.add(10);
@@ -35,7 +38,8 @@ public class ArrayLists {
         list.addFirst(10);
         list.addLast(50);
 
-        list.remove(1);
+        list.remove(1); //remove by index
+        list.remove(Integer.valueOf(2)); // remove by value
         // to remove first element use removeFirst
         // to remove last element use removeLast
         for(Integer i: list) {
@@ -48,5 +52,73 @@ public class ArrayLists {
 
         System.out.println(list.get(2)); */
 
+        // by default the initial capacity of an ArrayList is : 10, when more than 10 elements
+        // are added then the capacity will grow by current capacity * 1.5
+
+        /* ArrayList<Integer> list2 = new ArrayList<>(20);
+        list2.add(9);
+        list2.add(9);
+        list2.add(9);
+        list2.add(9);
+        list2.add(9);
+        list2.add(9);
+        list2.add(9);
+        list2.add(9);
+         */
+
+        // Arrays.asLis. We cannot add or remove elements in here but we can replace elements here.
+        /*String[] arr = {"Monday" , "Sunday" , "Friday"};
+        // ArrayList<String> days = Arrays.asList(arr);
+        List<String> days = Arrays.asList(arr);
+        System.out.println(days);
+
+        // List.of, is immutable and does not allow add, remove or replace elements
+
+        List<Integer> val = List.of(1,2,3,4,5,6);
+        System.out.println(val);
+        */
+
+        // We can crate an ArrayList from another collection
+       /* List<Integer> val = List.of(1,2,3,4,5,6);
+        ArrayList<Integer> copy = new ArrayList<>(val);
+//        System.out.println(copy);
+
+        List<Integer> val2 = new ArrayList<>();
+        val2.add(10);
+        val2.add(30);
+
+        List<Integer> val3 = Arrays.asList(1,2,3,4,5,6);
+
+        //  val3.addAll(val2); exception we cannot add ArrayList to Arrays$ArrayList
+
+        val2.addAll(val3);
+        val2.addAll(val);
+        System.out.println(val2);
+
+
+        */
+
+
+
+        // converting ArrayList to array
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(10);
+        arr.add(30);
+        arr.add(20);
+        arr.add(15);
+        arr.add(25);
+
+        Object[] array = arr.toArray();
+
+        Integer[] newArray = arr.toArray(new Integer[0]);
+
+        for (Integer i: newArray) {
+            System.out.println(i);
+        }
+
+
+        // sorting a list
+        arr.sort(null);
+        System.out.println(arr);
     }
 }
