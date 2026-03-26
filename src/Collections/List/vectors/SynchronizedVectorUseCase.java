@@ -1,6 +1,5 @@
-package Collections.vectors;
+package Collections.List.vectors;
 
-import java.util.ArrayList;
 import java.util.Vector;
 
 public class SynchronizedVectorUseCase {

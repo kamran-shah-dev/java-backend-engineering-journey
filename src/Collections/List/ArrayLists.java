@@ -120,5 +120,19 @@ public class ArrayLists {
         // sorting a list
         arr.sort(null);
         System.out.println(arr);
+
+        // to use ArrayList as a stack (not recommended)
+        ArrayList<Integer> arr2 = new ArrayList<>();
+        arr2.add(10);
+        arr2.add(30);
+        arr2.add(20);
+        arr2.add(15);
+        arr2.add(25);
+
+        // PEEK - (Get Top)
+        System.out.println("Top element: " + (arr2.getLast()));
+
+        // POP - (Remove top)
+        System.out.println("Popped: " + (arr2.removeLast()));
     }
 }
