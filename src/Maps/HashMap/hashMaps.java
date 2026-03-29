@@ -17,6 +17,18 @@ public class hashMaps {
         System.out.println(orders); // print as a dictionary
 
 
+        // HashMap functions
+        // Put Functions
+        orders.putIfAbsent(4, "60 KG"); // if not present it will add
+        orders.putAll(Map.of(5, "70 KG", 6, "90 KG"));
+
+        // Compute functions
+        orders.compute(2, (key, value) -> value = "20KG"); // if present it will update that otherwise it will add a new one
+        orders.computeIfPresent(4, (key, value) -> value = "50KG"); // if present it will update otherwise does nothing
+        orders.computeIfAbsent(2, value -> "50KG"); // if absent it will add a new one otherwise do nothing.
+        System.out.println(orders.computeIfAbsent(9, key -> "50 KG"));
+
+
         // Iterate through HashMap
         // using keySet()
 
