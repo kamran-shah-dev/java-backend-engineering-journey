@@ -58,7 +58,5 @@ public class IdentityHashMaps {
         Both strings are equal: true
         3366 = 3366 ? true
         * */
-
-
     }
 }
