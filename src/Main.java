@@ -3,124 +3,49 @@ import java.util.PriorityQueue;
 public class Main {
 
     public static void main(String[] args) {
-        Solution solve = new Solution();
-        int [] arr = {5,2,3,1};
-        System.out.println(solve.minimumPairRemoval(arr));
-    }
-}
+        Solution sl = new Solution();
+        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3, null)));
+        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4, null)));
 
 
-class Node {
-
-    long value;
-    int left;
-    Node prev;
-    Node next;
-
-    Node(int value, int left) {
-        this.value = value;
-        this.left = left;
-    }
-}
-
-class PQItem implements Comparable<PQItem> {
-
-    Node first;
-    Node second;
-    long cost;
-
-    PQItem(Node first, Node second, long cost) {
-        this.first = first;
-        this.second = second;
-        this.cost = cost;
-    }
-
-    @Override
-    public int compareTo(PQItem other) {
-        if (this.cost == other.cost) {
-            return this.first.left - other.first.left;
+        ListNode temp = sl.addTwoNumbers(l1, l2);
+        while (temp != null) {
+            System.out.println(temp.val);
+            temp = temp.next;
         }
-        return this.cost < other.cost ? -1 : 1;
     }
+}
+
+
+//Definition for singly-linked list.
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode() {}
+    ListNode(int val) { this.val = val; }
+    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }
 
 class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode result = new ListNode(0);
+        ListNode temp = result;
+        int carry = 0;
+        while(l1 != null || l2 != null) {
+            int val1 = 0,  val2 = 0, sum = 0;
+            if (l1 != null) {val1 = l1.val; l1 = l1.next;}
+            if (l2 != null) {val2 = l2.val; l2 = l2.next;}
 
-    public int minimumPairRemoval(int[] nums) {
-        PriorityQueue<PQItem> pq = new PriorityQueue<>();
-        boolean[] merged = new boolean[nums.length];
+            System.out.println("val1 " + val1 );
+            System.out.println("val2 " + val2 );
+            sum = val1 + val2 + carry;
+            carry = sum / 10;
+            sum = sum % 10;
 
-        int decreaseCount = 0;
-        int count = 0;
-        Node head = new Node(nums[0], 0);
-        Node current = head;
-
-        for (int i = 1; i < nums.length; i++) {
-            Node newNode = new Node(nums[i], i);
-            current.next = newNode;
-            newNode.prev = current;
-            pq.offer(
-                    new PQItem(current, newNode, current.value + newNode.value)
-            );
-            if (nums[i - 1] > nums[i]) {
-                decreaseCount++;
-            }
-            current = newNode;
+            temp.next = new ListNode(sum, null);
+            temp = temp.next;
         }
-
-        while (decreaseCount > 0) {
-            PQItem item = pq.poll();
-            Node first = item.first;
-            Node second = item.second;
-            long cost = item.cost;
-
-            if (
-                    merged[first.left] ||
-                            merged[second.left] ||
-                            first.value + second.value != cost
-            ) {
-                continue;
-            }
-            count++;
-            if (first.value > second.value) {
-                decreaseCount--;
-            }
-
-            Node prevNode = first.prev;
-            Node nextNode = second.next;
-            first.next = nextNode;
-            if (nextNode != null) {
-                nextNode.prev = first;
-            }
-
-            if (prevNode != null) {
-                if (prevNode.value > first.value && prevNode.value <= cost) {
-                    decreaseCount--;
-                } else if (
-                        prevNode.value <= first.value && prevNode.value > cost
-                ) {
-                    decreaseCount++;
-                }
-
-                pq.offer(new PQItem(prevNode, first, prevNode.value + cost));
-            }
-
-            if (nextNode != null) {
-                if (second.value > nextNode.value && cost <= nextNode.value) {
-                    decreaseCount--;
-                } else if (
-                        second.value <= nextNode.value && cost > nextNode.value
-                ) {
-                    decreaseCount++;
-                }
-
-                pq.offer(new PQItem(first, nextNode, cost + nextNode.value));
-            }
-
-            first.value = cost;
-            merged[second.left] = true;
-        }
-
-        return count;
+        temp.next = new ListNode(carry, null);
+        return result;
     }
 }
