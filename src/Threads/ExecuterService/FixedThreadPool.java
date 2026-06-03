@@ -3,19 +3,19 @@ package Threads.ExecuterService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class SingleThreadExecuter {
+public class FixedThreadPool {
     public static void main(String[] args) {
-        try (ExecutorService executor = Executors.newSingleThreadExecutor()) {
+        try (ExecutorService executor = Executors.newFixedThreadPool(3)) {
             for (int i = 0; i < 7; i++)
-                executor.execute(new Task(i));
+                executor.execute(new Assignment(i));
         }
     }
 }
 
-class Task implements Runnable {
+class Assignment implements Runnable {
 
     private int taskId;
-    public Task (int taskId) {
+    public Assignment(int taskId) {
         this.taskId = taskId;
     }
 
