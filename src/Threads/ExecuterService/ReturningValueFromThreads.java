@@ -3,9 +3,13 @@ package Threads.ExecuterService;
 import java.util.concurrent.*;
 
 // Two concepts - 1. Callable, 2. Future
+// Callable is a generic interface, while Future is a generic class
 public class ReturningValueFromThreads {
     public static void main(String[] args) {
         try (ExecutorService service = Executors.newFixedThreadPool(2)) {
+
+
+
             Future<Integer> result = service.submit(new ReturnValue());
 
             // if we set a timeout, then Future will wait for that much time and then it will through exception
@@ -23,13 +27,10 @@ public class ReturningValueFromThreads {
             // if results is not yet returned and get is called, it will block the main thread
             System.out.println("Main thread executed after Future result.");
 
-        } catch (ExecutionException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        } catch (TimeoutException e) {
+        } catch (ExecutionException | InterruptedException | TimeoutException e) {
             throw new RuntimeException(e);
         }
+
 
     }
 }
