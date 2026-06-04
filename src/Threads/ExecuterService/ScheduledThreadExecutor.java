@@ -10,7 +10,6 @@ public class ScheduledThreadExecutor {
     public static void main(String[] args) {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(new notify(), 1, 3, TimeUnit.SECONDS);
-
         try
         {
             if(!executor.awaitTermination(15, TimeUnit.SECONDS))
