@@ -24,7 +24,7 @@ class job implements Runnable {
     public void run() {
         System.out.println("Task " + taskId + " is executed by - " + Thread.currentThread().getName());
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
